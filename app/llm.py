@@ -4,9 +4,6 @@ import os
 import re
 from typing import Dict, List
 
-logger = logging.getLogger(__name__)
-logging.basicConfig(level=logging.DEBUG)
-
 
 class LLMClient:
     def __init__(self):
@@ -16,13 +13,17 @@ class LLMClient:
         self.openai_key = os.getenv("OPENAI_API_KEY", "")
 
     def build_prompt(self, transcript: str, rag_docs: List[str]) -> str:
-        kb_text = "\n\n---\n".join(rag_docs) if rag_docs else "No medication knowledge available."
+        # Format retrieved docs into a readable block
+        rag_text = "\n\n".join([f"[{i+1}] {doc}" for i, doc in enumerate(rag_docs)])
+
         prompt = f"""You are a clinical AI assistant generating **After Visit Summary** sections.
 
             Step 1: Summarize the transcript into diagnoses_and_issues and treatment_plan.
             Step 2: In treatment_plan, if any medication is prescribed, identify any relevant information in the Medication knowledge that supplements or changes the transcript.
-            Step 3: Put the relevant medication information into treatment_plan, right after the medication is mentioned.
-            Step 4: Merge the two into final JSON.
+            Step 3: For every medication mentioned, ALWAYS include BOTH generic and brand names. 
+                Even if only one is mentioned in the transcript, the other must be added using the RAG KB.
+            Step 4: Put the relevant medication information into treatment_plan, right after the medication is mentioned.
+            Step 5: Merge the two into final JSON.
 
             Rules:
             - Use ONLY the transcript and medication knowledge provided.
@@ -38,7 +39,7 @@ class LLMClient:
             {transcript}
 
             Medication knowledge (retrieved snippets):
-            {kb_text}
+            {rag_text}
 
             Return JSON only, no extra commentary.
             """
@@ -66,19 +67,19 @@ class LLMClient:
 
     def generate_summary(self, transcript: str, rag_docs: List[str]) -> Dict:
         prompt = self.build_prompt(transcript, rag_docs)
-        logging.debug(f"Provider: {self.provider}")
+        logging.info(f"LLM Provider: {self.provider}")
 
         if self.provider == "gemini":
             import google.generativeai as genai
             genai.configure(api_key=self.gemini_key)
-            model = genai.GenerativeModel("gemini-1.5-flash-latest")
+            model = genai.GenerativeModel(self.model)
             response = model.generate_content(prompt)
             raw_text = response.text
         elif self.provider == "openai":
             from openai import OpenAI
             client = OpenAI(api_key=self.openai_key)
             response = client.chat.completions.create(
-                model="gpt-4.0-mini",
+                model=self.model,
                 messages=[
                     {"role": "system", "content": "You are a helpful medical assistant."},
                     {"role": "user", "content": prompt},

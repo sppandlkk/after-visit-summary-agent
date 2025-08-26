@@ -1,0 +1,11 @@
+NDC,GPI,Generic,Brand,Class,Indication,SideEffect,Monitoring
+00093-1048-06,36100030000320,Metformin,Glucophage,Biguanide,"Type 2 diabetes","GI upset, diarrhea","Renal function, A1c"
+00039-0221-10,36100005100320,Lisinopril,"Prinivil, Zestril",ACE inhibitor,"Hypertension, heart failure, diabetic nephropathy","Cough, hyperkalemia, angioedema","Blood pressure, potassium, renal function"
+00071-0155-23,39400010100310,Atorvastatin,Lipitor,Statin,"Hyperlipidemia, cardiovascular risk reduction","Myalgia, liver enzyme elevation","LFTs, lipid panel"
+00002-8215-01,36200010100320,Amlodipine,Norvasc,Calcium channel blocker,"Hypertension, angina","Edema, dizziness, flushing","Blood pressure, heart rate"
+00006-0078-61,36150030000310,Glipizide,Glucotrol,Sulfonylurea,"Type 2 diabetes","Hypoglycemia, weight gain","Blood glucose, A1c"
+00024-5401-10,36400010100320,Losartan,Cozaar,ARB,"Hypertension, diabetic nephropathy, heart failure","Hyperkalemia, dizziness","Blood pressure, potassium, renal function"
+00085-1341-01,39400075000310,Simvastatin,Zocor,Statin,"Hyperlipidemia, prevention of cardiovascular disease","Myopathy, rhabdomyolysis","LFTs, lipid panel, CK if symptomatic"
+00025-1450-31,36400030000310,Valsartan,Diovan,ARB,"Hypertension, heart failure, post-MI","Dizziness, hyperkalemia","Blood pressure, renal function, potassium"
+00009-0227-05,36100010000320,Enalapril,Vasotec,ACE inhibitor,"Hypertension, heart failure","Cough, hyperkalemia","Blood pressure, potassium, renal function"
+00004-0185-23,36250050000310,Furosemide,Lasix,Loop diuretic,"Edema due to CHF, liver cirrhosis, renal disease","Hypokalemia, dehydration","Electrolytes, renal function, fluid status"

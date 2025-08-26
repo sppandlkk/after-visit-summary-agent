@@ -18,6 +18,8 @@ dependencies = [
     "tqdm",
     "requests",
     "genai",
+    "pandas",
+    "scikit-learn",
 ]
 
 [tool.uv]
