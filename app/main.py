@@ -1,20 +1,27 @@
 from __future__ import annotations
-from fastapi import FastAPI, Body
-from pydantic import BaseModel
-from typing import Optional
-from pathlib import Path
-from .fhir_client import FhirClient
-from .rag import LocalMedKB
-from .summarizer import build_avs
+
 import logging
+from pathlib import Path
+from typing import Optional
+
+from fastapi import Body, FastAPI
+from pydantic import BaseModel
+
+from .fhir_client import FhirClient
+from .rag import MedicationKB
+from .summarizer import build_avs
 
 app = FastAPI(title="AVS Agent Demo (FHIR)")
+
+logger = logging.getLogger(__name__)
+logging.basicConfig(level=logging.INFO)
 
 class GenerateAVSRequest(BaseModel):
     patient_fhir_id: str
     transcript_path: Optional[str] = None
     transcript_text: Optional[str] = None
     k: int = 4
+
 
 @app.post("/generate_avs")
 def generate_avs(req: GenerateAVSRequest = Body(...)):
@@ -41,12 +48,17 @@ def generate_avs(req: GenerateAVSRequest = Body(...)):
             f"No transcript found. Path checked: {transcript_path}, and no transcript_text provided."
         )
 
-    logging.info(f"Loaded transcript (length={len(transcript) if transcript else 0})")
+    logging.info(f"Loaded transcript for patient {req.patient_fhir_id} (length={len(transcript) if transcript else 0})")
 
-    kb = LocalMedKB(Path("data/med_kb"))
-    result = build_avs(patient, encounter, conds, med_reqs, med_stmts, transcript, kb, k=req.k)
+    # initialize RAG Knowledge Base
+    kb = MedicationKB()
+    result = build_avs(
+        patient, encounter, conds, med_reqs, med_stmts, transcript, kb, k=req.k
+    )
 
-    outputs = Path("outputs"); outputs.mkdir(exist_ok=True)
+    # Save output markdown to local Path
+    outputs = Path("outputs")
+    outputs.mkdir(exist_ok=True)
     out_path = outputs / f"AVS_{req.patient_fhir_id}.md"
     out_path.write_text(result["avs_markdown"], encoding="utf-8")
 

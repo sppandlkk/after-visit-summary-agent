@@ -13,10 +13,10 @@ Time: 09:40
 Conditions: Type 2 diabetes mellitus | Medications: Lisinopril 10 mg daily
 
 **Diagnoses & Issues**  
-Type 2 diabetes mellitus with elevated postprandial blood sugars (160-180 mg/dL).  Patient reports some gastrointestinal upset from metformin.
+Type 2 diabetes with elevated postprandial blood sugars (160-180 mg/dL).  Patient reports some gastrointestinal upset from current metformin regimen.
 
 **Treatment Plan**  
-Increase metformin to 500 mg twice daily. Take with meals to reduce GI side effects.  Metformin is a biguanide used as a first-line treatment for type 2 diabetes mellitus. Common side effects include GI upset (nausea, diarrhea), and a metallic taste.  Rare but serious risk of lactic acidosis; avoid in severe renal impairment.  If persistent GI side effects occur, contact the clinic; extended-release metformin may be an option. Keep a glucose log.  Schedule labs in 3 months (A1c and comprehensive metabolic panel).  Lifestyle modifications include aiming for 150 minutes of moderate exercise weekly and reducing sugary drinks.  Follow up in 3 months.  A1c should be monitored every 3 months until stable; renal function (eGFR) should be checked at baseline and periodically.
+Increase metformin (Glucophage) to 500 mg twice daily.  Metformin is a biguanide used to treat type 2 diabetes. Common side effects include gastrointestinal upset and diarrhea.  It's important to take metformin with food to minimize these side effects.  The patient should maintain a glucose log.  Labs (A1c and comprehensive metabolic panel) are scheduled in 3 months. Lifestyle modifications include aiming for 150 minutes of moderate exercise weekly and reducing consumption of sugary drinks.
 
 **Follow-up**  
 Doctor: Let's follow up in 3 months.

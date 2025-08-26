@@ -1,17 +1,21 @@
 from __future__ import annotations
+
 import os
-import requests
 from pathlib import Path
-from typing import Dict, Any, List
+from typing import Any, Dict, List
+
+import requests
 
 DATA_DIR = Path(__file__).resolve().parent.parent / "data" / "mock_fhir"
 
+
 class FhirClient:
     """Client that queries a real FHIR server when configured, otherwise falls back to local mock files.
-    It expects the following env vars:
+    It expects the following env vars if using a remote FHIR server:
       - FHIR_BASE_URL (e.g. https://epic.example.com/api/FHIR/R4)
       - FHIR_API_KEY (optional, for authorization header)
     """
+
     def __init__(self):
         self.base_url = os.getenv("FHIR_BASE_URL", "").rstrip("/")
         self.api_key = os.getenv("FHIR_API_KEY", "")
@@ -95,7 +99,9 @@ class FhirClient:
             return json_load(p)
         return {}
 
+# helper function to load JSON from a file
 def json_load(path: Path):
     import json
-    with open(path, 'r', encoding='utf-8') as f:
+
+    with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
