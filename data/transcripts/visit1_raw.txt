@@ -1,0 +1,13 @@
+Doctor: Hi Mei-Ling, good to see you. How have your blood sugars been lately?
+Patient: They've been a bit high after meals, around 160-180.
+Doctor: Any side effects from metformin?
+Patient: Some stomach upset, mostly when I forget to take it with food.
+Doctor: Okay. We'll increase metformin to 500 mg twice daily and have you keep a glucose log.
+Patient: Sounds good.
+Doctor: I'd also like labs in 3 months—A1c and a comprehensive metabolic panel.
+Patient: Okay.
+Doctor: For lifestyle, aim for 150 minutes of moderate exercise weekly and cut sugary drinks.
+Patient: I can do that.
+Doctor: I'll send the new prescription today.
+Patient: Thank you.
+Doctor: Let's follow up in 3 months.

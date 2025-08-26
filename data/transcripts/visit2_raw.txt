@@ -1,0 +1,12 @@
+Patient: Good morning, doctor. I've been feeling more tired than usual and sometimes I get short of breath when walking up stairs. 
+Doctor: Morning! Let's review your vitals and labs. Your blood pressure is 150/95, which is elevated. Your lab work shows mild kidney function decline, and your cholesterol is slightly high.
+Patient: I see. Last time we discussed my blood pressure medication, I was on metformin for diabetes, but not yet any hypertension meds.
+Doctor: Right. Given your elevated blood pressure readings and the kidney function, I am going to start you on a medication called Lisinopril, which is an ACE inhibitor. We will begin at 10 mg once daily. 
+Patient: Are there side effects I should watch for?
+Doctor: Yes, some people may experience dizziness, cough, or increased potassium levels. Make sure to report any swelling or severe symptoms. Also, continue monitoring your blood pressure at home.
+Patient: Okay, I will. What about lifestyle changes?
+Doctor: Maintain a low-sodium diet, regular exercise at least 30 minutes per day, and keep track of your weight and blood pressure. Continue your glucose monitoring and metformin for diabetes as before.
+Patient: Should I schedule follow-up?
+Doctor: Yes, let's see you in 4 weeks to review your blood pressure and labs. We may adjust Lisinopril dose based on your response.
+Patient: Thank you, doctor.
+Doctor: You're welcome. Remember, if you feel dizzy or have any concerning symptoms, call the clinic right away.

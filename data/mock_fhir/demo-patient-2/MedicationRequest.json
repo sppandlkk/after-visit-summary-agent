@@ -1,0 +1,11 @@
+[
+  {
+    "resourceType": "MedicationRequest",
+    "id": "medreq-002",
+    "status": "active",
+    "intent": "order",
+    "medicationCodeableConcept": {"text": "Metformin 500 mg tablet"},
+    "subject": {"reference": "Patient/demo-patient-2"},
+    "dosageInstruction": [{"text": "Take 1 tablet twice daily with meals"}]
+  }
+]

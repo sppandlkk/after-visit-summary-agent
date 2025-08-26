@@ -1,0 +1,10 @@
+[
+  {
+    "resourceType": "MedicationRequest",
+    "status": "active",
+    "intent": "order",
+    "medicationCodeableConcept": {
+      "text": "Metformin 500 mg BID"
+    }
+  }
+]

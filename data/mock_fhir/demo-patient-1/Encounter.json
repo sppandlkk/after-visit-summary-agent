@@ -1,0 +1,15 @@
+{
+  "resourceType": "Encounter",
+  "id": "enc-2025-08-25",
+  "status": "finished",
+  "class": {
+    "code": "AMB"
+  },
+  "period": {
+    "start": "2025-08-25T09:40:00Z",
+    "end": "2025-08-25T10:05:00Z"
+  },
+  "subject": {
+    "reference": "Patient/demo-patient-1"
+  }
+}

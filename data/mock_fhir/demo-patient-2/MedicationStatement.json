@@ -1,0 +1,10 @@
+[
+  {
+    "resourceType": "MedicationStatement",
+    "id": "medstat-002",
+    "status": "active",
+    "medicationCodeableConcept": {"text": "Atorvastatin 20 mg tablet"},
+    "subject": {"reference": "Patient/demo-patient-2"},
+    "dosage": [{"text": "Take 1 tablet at bedtime"}]
+  }
+]

@@ -1,0 +1,11 @@
+[
+  {
+    "resourceType": "Condition",
+    "code": {
+      "text": "Type 2 diabetes mellitus"
+    },
+    "clinicalStatus": {
+      "text": "active"
+    }
+  }
+]

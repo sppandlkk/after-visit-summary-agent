@@ -1,0 +1,16 @@
+{
+  "resourceType": "Patient",
+  "id": "demo-patient-1",
+  "name": [
+    {
+      "use": "official",
+      "family": "Chen",
+      "given": [
+        "Mei",
+        "Ling"
+      ]
+    }
+  ],
+  "gender": "female",
+  "birthDate": "1982-04-15"
+}

@@ -1,0 +1,9 @@
+[
+  {
+    "resourceType": "MedicationStatement",
+    "status": "active",
+    "medicationCodeableConcept": {
+      "text": "Lisinopril 10 mg daily"
+    }
+  }
+]
