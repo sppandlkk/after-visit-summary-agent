@@ -31,10 +31,9 @@ class FhirClient:
             return r.json()
         # local mock path: data/mock_fhir/{patient_fhir_id}/Patient_{id}.json or Patient.json
         folder = DATA_DIR / patient_fhir_id
-        paths = [folder / f"Patient_{patient_fhir_id}.json", folder / "Patient.json"]
-        for p in paths:
-            if p.exists():
-                return json_load(p)
+        p = folder / "Patient.json"
+        if p.exists():
+            return json_load(p)
         return {}
 
     def list_conditions(self, patient_fhir_id: str) -> List[Dict[str, Any]]:

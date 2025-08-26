@@ -102,30 +102,30 @@ def build_avs(patient: Dict[str,Any],
 
     md = f"""# After Visit Summary
 
-        **Patient**  
-        Name: {name}  
-        DOB: {birth}  
-        Sex: {gender}  
+**Patient**  
+Name: {name}  
+DOB: {birth}  
+Sex: {gender}  
 
-        **Visit Information**  
-        Date: {visit_date}  
-        Time: {visit_time}  
+**Visit Information**  
+Date: {visit_date}  
+Time: {visit_time}  
 
-        **History**  
-        {history_text or "unknown"}
+**History**  
+{history_text or "unknown"}
 
-        **Diagnoses & Issues**  
-        {diag_text}
+**Diagnoses & Issues**  
+{diag_text}
 
-        **Treatment Plan**  
-        {plan_text}
+**Treatment Plan**  
+{plan_text}
 
-        **Follow-up**  
-        {follow}
+**Follow-up**  
+{follow}
 
-        ---  
-        *Sources:* patient={provenance['patient']}; visit={provenance['visit']}; history={provenance['history']}; dx/issues={provenance['diagnoses_and_issues']}; plan={provenance['treatment_plan']}; follow-up={provenance['follow_up']}
-    """ 
+---  
+*Sources:* patient={provenance['patient']}; visit={provenance['visit']}; history={provenance['history']}; dx/issues={provenance['diagnoses_and_issues']}; plan={provenance['treatment_plan']}; follow-up={provenance['follow_up']}
+""" 
 
     return {
         "avs_markdown": md,
