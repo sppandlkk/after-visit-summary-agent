@@ -43,19 +43,22 @@ flowchart LR
 
 ### Prerequisites
 - Python 3.10+  
-- [Poetry](https://python-poetry.org/) or `venv` for environment management  
+- [uv](https://docs.astral.sh/uv/) for environment management  
 - Valid API keys for LLM (e.g. Gemini or OpenAi)
 
-### Environment SeuUp
+### Environment Setup
 ```bash
 git clone https://github.com/sppandlkk/after-visit-summary-agent.git
 cd after-visit-summary-agent
 
 # use uv to manage package
 un sync
+
+# to start the service
+uv run uvicorn app.main:app --env-file=.env --reload 
 ```
 
-Create a `.env` file and fill in information:
+Make sure `.env` file has necessary information:
 ```
 LLM_PROVIDER=gemini # or openai
 AI_MODEL=gemini-1.5-flash # or gpt-4o-mini
