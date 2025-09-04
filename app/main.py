@@ -16,6 +16,7 @@ app = FastAPI(title="AVS Agent Demo (FHIR)")
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO)
 
+
 class GenerateAVSRequest(BaseModel):
     patient_fhir_id: str
     transcript_path: Optional[str] = None
@@ -48,7 +49,9 @@ def generate_avs(req: GenerateAVSRequest = Body(...)):
             f"No transcript found. Path checked: {transcript_path}, and no transcript_text provided."
         )
 
-    logging.info(f"Loaded transcript for patient {req.patient_fhir_id} (length={len(transcript) if transcript else 0})")
+    logging.info(
+        f"Loaded transcript for patient {req.patient_fhir_id} (length={len(transcript) if transcript else 0})"
+    )
 
     # initialize RAG Knowledge Base
     kb = MedicationKB()

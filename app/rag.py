@@ -1,6 +1,8 @@
 from __future__ import annotations
+
 from pathlib import Path
-from typing import List, Dict
+from typing import Dict, List
+
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
@@ -60,10 +62,12 @@ class MedicationKB:
 
         results = []
         for i in idxs:
-            results.append({
-                "score": float(sims[i]),
-                "doc": self.docs[i],
-                "generic": self.df.iloc[i]["Generic"],
-                "brand": self.df.iloc[i]["Brand"],
-            })
+            results.append(
+                {
+                    "score": float(sims[i]),
+                    "doc": self.docs[i],
+                    "generic": self.df.iloc[i]["Generic"],
+                    "brand": self.df.iloc[i]["Brand"],
+                }
+            )
         return results
