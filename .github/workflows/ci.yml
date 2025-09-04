@@ -9,21 +9,39 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.13'
+
       - name: Install uv
-        run: curl -sSf https://install.uv.dev | sh
+        run: |
+          # Install uv and add it to the PATH
+          curl -LsSf https://astral.sh/uv/install.sh | sh
+          echo "$HOME/.cargo/bin" >> $GITHUB_PATH
+
       - name: Install dependencies
-        run: uv sync
+        run: |
+          # Install dependencies including semgrep
+          uv sync --frozen
+          uv pip install semgrep
+          uv pip install ruff
+
       - name: Run pytest
-        run: PYTHONPATH=. uv run pytest
-      - name: Install semgrep
-        run: uv pip install semgrep
+        run: PYTHONPATH=. uv run pytest --maxfail=1 --disable-warnings -q
+
       - name: Run semgrep
-        run: semgrep --config=auto app/
+        run: uv run semgrep --config=auto app/
+
+      - name: Run ruff
+        run: uv run ruff format --check app/
+
   dependabot:
+    # This job will only run on a Dependabot PR
+    if: ${{ github.actor == 'dependabot[bot]' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: dependabot/fetch-metadata@v2
+      - name: Fetch Dependabot metadata
+        uses: dependabot/fetch-metadata@v2
+        id: dependabot-metadata
