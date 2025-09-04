@@ -109,8 +109,7 @@ def build_avs(
             continue
         for res in kb.retrieve(med, k=k):
             rag_context.append(
-                f"# Generic: {res['generic']} | Brand: {res['brand']}\n"
-                f"{res['doc']}"
+                f"# Generic: {res['generic']} | Brand: {res['brand']}\n{res['doc']}"
             )
     logging.info(f"{k} RAG docs retrieved for medications: {meds_now}")
 

@@ -99,6 +99,7 @@ class FhirClient:
             return json_load(p)
         return {}
 
+
 # helper function to load JSON from a file
 def json_load(path: Path):
     import json

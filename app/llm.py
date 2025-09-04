@@ -14,7 +14,7 @@ class LLMClient:
 
     def build_prompt(self, transcript: str, rag_docs: List[str]) -> str:
         # Format retrieved docs into a readable block
-        rag_text = "\n\n".join([f"[{i+1}] {doc}" for i, doc in enumerate(rag_docs)])
+        rag_text = "\n\n".join([f"[{i + 1}] {doc}" for i, doc in enumerate(rag_docs)])
 
         prompt = f"""You are a clinical AI assistant generating **After Visit Summary** sections.
 
@@ -49,7 +49,9 @@ class LLMClient:
         logging.debug(f"Raw LLM response: {raw_text}")
 
         # Remove markdown code fences if present
-        cleaned = re.sub(r"^```(?:json)?\s*|\s*```$", "", raw_text.strip(), flags=re.DOTALL)
+        cleaned = re.sub(
+            r"^```(?:json)?\s*|\s*```$", "", raw_text.strip(), flags=re.DOTALL
+        )
 
         try:
             parsed = json.loads(cleaned)
@@ -71,17 +73,22 @@ class LLMClient:
 
         if self.provider == "gemini":
             import google.generativeai as genai
+
             genai.configure(api_key=self.gemini_key)
             model = genai.GenerativeModel(self.model)
             response = model.generate_content(prompt)
             raw_text = response.text
         elif self.provider == "openai":
             from openai import OpenAI
+
             client = OpenAI(api_key=self.openai_key)
             response = client.chat.completions.create(
                 model=self.model,
                 messages=[
-                    {"role": "system", "content": "You are a helpful medical assistant."},
+                    {
+                        "role": "system",
+                        "content": "You are a helpful medical assistant.",
+                    },
                     {"role": "user", "content": prompt},
                 ],
             )
