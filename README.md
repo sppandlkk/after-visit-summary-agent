@@ -70,6 +70,10 @@ FHIR_API_BASE=https://demo.fhir.com
 FHIR_API_KEY=xxxxxx
 ```
 
+To run pytest locally:
+```
+PYTHONPATH=. uv run pytest
+```
 ---
 
 ## Running the Pipeline
