@@ -52,7 +52,7 @@ git clone https://github.com/sppandlkk/after-visit-summary-agent.git
 cd after-visit-summary-agent
 
 # use uv to manage package
-un sync
+uv sync
 
 # to start the service
 uv run uvicorn app.main:app --env-file=.env --reload 
